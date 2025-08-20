@@ -1,0 +1,178 @@
+/* styles.css */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #000;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Arial', sans-serif;
+    color: white;
+}
+
+.container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+/* Galaxy core */
+.core {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background: radial-gradient(circle, #ffcc00, #ff9900, #ff6600);
+    box-shadow: 0 0 100px #ff6600, 0 0 150px #ff9900;
+    animation: pulse 4s infinite alternate;
+}
+
+/* Spiral arms */
+.spiral {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    animation: rotate 120s infinite linear;
+}
+
+.arm {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 200px;
+    height: 40px;
+    background: rgba(102, 153, 255, 0.3);
+    border-radius: 20px;
+    transform-origin: 0 0;
+    box-shadow: 0 0 40px rgba(102, 153, 255, 0.5);
+}
+
+/* Stars */
+.star {
+    position: absolute;
+    background: #fff;
+    border-radius: 50%;
+    animation: twinkle var(--duration) infinite ease-in-out;
+    opacity: 0;
+}
+
+/* Large distant stars */
+.star-large {
+    width: 3px;
+    height: 3px;
+    box-shadow: 0 0 10px 2px rgba(255, 255, 255, 0.8);
+}
+
+/* Small stars */
+.star-small {
+    width: 1px;
+    height: 1px;
+    box-shadow: 0 0 5px 1px rgba(255, 255, 255, 0.8);
+}
+
+/* Title styling */
+.title {
+    position: absolute;
+    top: 50px;
+    width: 100%;
+    text-align: center;
+    font-size: 40px;
+    font-weight: bold;
+    color: #4dc0ff;
+    text-shadow: 0 0 20px #4dc0ff, 0 0 30px #4dc0ff;
+    letter-spacing: 5px;
+    animation: glow 3s infinite alternate;
+}
+
+/* Emoji styling */
+.emoji {
+    position: absolute;
+    bottom: 100px;
+    right: 100px;
+    font-size: 50px;
+    cursor: grab;
+    user-select: none;
+    z-index: 100;
+    animation: spin 5s infinite linear;
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.7);
+}
+
+.emoji:active {
+    cursor: grabbing;
+    animation: none;
+}
+
+/* Instructions */
+.instructions {
+    position: absolute;
+    bottom: 30px;
+    width: 100%;
+    text-align: center;
+    font-size: 16px;
+    color: #aaa;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+/* Animations */
+@keyframes pulse {
+    0% {
+        transform: translate(-50%, -50%) scale(1);
+        box-shadow: 0 0 100px #ff6600, 0 0 150px #ff9900;
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(1.2);
+        box-shadow: 0 0 120px #ff9900, 0 0 180px #ffcc00;
+    }
+}
+
+@keyframes rotate {
+    0% {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+    100% {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+@keyframes twinkle {
+    0%, 100% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+}
+
+@keyframes glow {
+    0% {
+        text-shadow: 0 0 20px #4dc0ff, 0 0 30px #4dc0ff;
+    }
+    100% {
+        text-shadow: 0 0 30px #4dc0ff, 0 0 40px #4dc0ff, 0 0 50px #4dc0ff;
+    }
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg) scale(1);
+    }
+    50% {
+        transform: rotate(180deg) scale(1.5);
+    }
+    100% {
+        transform: rotate(360deg) scale(1);
+    }
+}
